@@ -1,0 +1,33 @@
+﻿<UserControl x:Class="GenshinCalc_V2.CharacterAttributes"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:GenshinCalc_V2"
+             mc:Ignorable="d" Width="900" Height="64">
+	<Canvas Background="#FFFFFAF4" Height="64" Margin="0,0,0,0" OpacityMask="#FFFFC0C0" >
+		<Label Content="攻击力" Width="120" x:Name="AttributeNameLabel" HorizontalContentAlignment="Center" Canvas.Left="6" Canvas.Top="4"/>
+		<Label x:Name="Total" Width="120" Height="36" HorizontalContentAlignment="Center" FontSize="22" Padding="0,0,0,0" FontWeight="Bold" Canvas.Left="6" Canvas.Top="24" VerticalContentAlignment="Bottom"/>
+		<Canvas Canvas.Left="12">
+			<Label x:Name="CharacterBasic_Label" Content="角色基础值" Width="80"  VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="14" Canvas.Left="120" Canvas.Top="5"/>
+			<TextBox TextWrapping="Wrap" Width="80" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" x:Name="CharacterBasic" Height="28" TextChanged="TextBox_TextChanged" FontSize="14" Background="#FFFDFFEC" BorderBrush="#FF8BA8FF" SelectionBrush="#FF46A402" KeyDown="FastCalculate" IsVisibleChanged="TextBox_IsVisibleChanged" Loaded="TextBox_IsVisibleChanged" Canvas.Left="120" Canvas.Top="28" />
+			<Label x:Name="WeaponBasic_Label" Content="武器基础值" Width="80"  VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="14" Canvas.Left="204" Canvas.Top="4"/>
+			<TextBox TextWrapping="Wrap" Text="" Width="80" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" x:Name="WeaponBasic" Height="28" TextChanged="TextBox_TextChanged" FontSize="14" Background="#FFFDFFEC" BorderBrush="#FF8BA8FF" SelectionBrush="#FF46A402" KeyDown="FastCalculate" IsVisibleChanged="TextBox_IsVisibleChanged" Loaded="TextBox_IsVisibleChanged" Canvas.Left="204" Canvas.Top="28"/>
+			<Label x:Name="CharacterAscention_Label" Content="突破加成" Width="80"  VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="14" Canvas.Left="288" Canvas.Top="4"/>
+			<TextBox TextWrapping="Wrap" Text="" Width="80" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" x:Name="CharacterAscention" Height="28" TextChanged="TextBox_TextChanged" FontSize="14" Background="#FFFDFFEC" BorderBrush="#FF8BA8FF" SelectionBrush="#FF46A402" KeyDown="FastCalculate" IsVisibleChanged="TextBox_IsVisibleChanged" Loaded="TextBox_IsVisibleChanged" Canvas.Left="288" Canvas.Top="28"/>
+			<Label x:Name="WeaponAttribute_Label" Content="武器副属性" Width="80"  VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="14" Canvas.Left="372" Canvas.Top="4"/>
+			<TextBox TextWrapping="Wrap" Text="" Width="80" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" x:Name="WeaponAttribute" Height="28" TextChanged="TextBox_TextChanged" FontSize="14" Background="#FFFDFFEC" BorderBrush="#FF8BA8FF" SelectionBrush="#FF46A402" KeyDown="FastCalculate" IsVisibleChanged="TextBox_IsVisibleChanged" Loaded="TextBox_IsVisibleChanged" Canvas.Left="372" Canvas.Top="28"/>
+			<Label x:Name="WeaponEffect_Label" Content="武器特效" Width="80"  VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="14" Canvas.Left="456" Canvas.Top="4"/>
+			<TextBox TextWrapping="Wrap" Text="" Width="80" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" x:Name="WeaponEffect" Height="28" TextChanged="TextBox_TextChanged" FontSize="14" Background="#FFFDFFEC" BorderBrush="#FF8BA8FF" SelectionBrush="#FF46A402" KeyDown="FastCalculate" IsVisibleChanged="TextBox_IsVisibleChanged" Loaded="TextBox_IsVisibleChanged" Canvas.Left="456" Canvas.Top="28"/>
+			<Label x:Name="ArtifactAttribute_Label" Content="圣遗物加成" Width="80"  VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="14" Canvas.Left="540" Canvas.Top="4"/>
+			<TextBox TextWrapping="Wrap" Text="" Width="80" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" x:Name="ArtifactAttribute" Height="28" TextChanged="TextBox_TextChanged" FontSize="14" Background="#FFFDFFEC" BorderBrush="#FF8BA8FF" SelectionBrush="#FF46A402" KeyDown="FastCalculate" IsVisibleChanged="TextBox_IsVisibleChanged" Loaded="TextBox_IsVisibleChanged" Canvas.Left="540" Canvas.Top="28"/>
+			<Label x:Name="ElementalResonance_Label" Content="元素共鸣" Width="80"  VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="14" Canvas.Left="624" Canvas.Top="4"/>
+			<TextBox TextWrapping="Wrap" Text="" Width="80" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" x:Name="ElementalResonance" Height="28" TextChanged="TextBox_TextChanged" FontSize="14" Background="#FFFDFFEC" BorderBrush="#FF8BA8FF" SelectionBrush="#FF46A402" KeyDown="FastCalculate" IsVisibleChanged="TextBox_IsVisibleChanged" Loaded="TextBox_IsVisibleChanged" Canvas.Left="624" Canvas.Top="28"/>
+			<Label x:Name="PartnerEffect_Label" Content="队友加成" Width="80"  VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="14" Canvas.Left="708" Canvas.Top="4"/>
+			<TextBox TextWrapping="Wrap" Text="" Width="80" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" x:Name="PartnerEffect" Height="28" TextChanged="TextBox_TextChanged" FontSize="14" Background="#FFFDFFEC" BorderBrush="#FF8BA8FF" SelectionBrush="#FF46A402" KeyDown="FastCalculate" IsVisibleChanged="TextBox_IsVisibleChanged" Loaded="TextBox_IsVisibleChanged" Canvas.Left="708" Canvas.Top="28"/>
+			<Label x:Name="OtherEffect_Label" Content="其他加成"  VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="14" Canvas.Left="792" Canvas.Top="5" FlowDirection="LeftToRight" Width="80"/>
+			<TextBox TextWrapping="Wrap" Text="" Width="80" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" x:Name="OtherEffect" Height="28" TextChanged="TextBox_TextChanged" FontSize="14" Background="#FFFDFFEC" BorderBrush="#FF8BA8FF" SelectionBrush="#FF46A402" KeyDown="FastCalculate" IsVisibleChanged="TextBox_IsVisibleChanged" Loaded="TextBox_IsVisibleChanged" Canvas.Left="792" Canvas.Top="28"/>
+		</Canvas>
+
+	</Canvas>
+</UserControl>

@@ -5,79 +5,158 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GenshinCalc_V2"
         mc:Ignorable="d"
-        Title="MainWindow" Height="720" Width="1280">
-	<Grid>
-		<ComboBox HorizontalAlignment="Left" Margin="111,79,0,0" VerticalAlignment="Top" Width="160" Height="32" MaxDropDownHeight="540" IsReadOnly="True" FontSize="18" VerticalContentAlignment="Center">
-			<ComboBoxItem Content="[风] 旅行者"		 Background="#FFFFF6CA" Foreground="#FF008292"/>
-			<ComboBoxItem Content="[风] 琴"			 Background="#FFFFF6CA" Foreground="#FF008292"/>
-			<ComboBoxItem Content="[风] 温迪"		 Background="#FFFFF6CA" Foreground="#FF008292"/>
-			<ComboBoxItem Content="[风] 魈"			 Background="#FFFFF6CA" Foreground="#FF008292"/>
-			<ComboBoxItem Content="[风] 枫原万叶"	 Background="#FFFFF6CA" Foreground="#FF008292"/>
-			<ComboBoxItem Content="[风] 砂糖"		 Background="#FFEED0FF" Foreground="#FF008292"/>
-			<ComboBoxItem Content="[风] 早柚"		 Background="#FFEED0FF" Foreground="#FF008292"/>
-			<ComboBoxItem Content="[风] 鹿野院平藏"	 Background="#FFEED0FF" Foreground="#FF008292"/>
-			<ComboBoxItem Content="[岩] 旅行者"		 Background="#FFFFF6CA" Foreground="#FF854E08"/>
-			<ComboBoxItem Content="[岩] 钟离"		 Background="#FFFFF6CA" Foreground="#FF854E08"/>
-			<ComboBoxItem Content="[岩] 阿贝多"		 Background="#FFFFF6CA" Foreground="#FF854E08"/>
-			<ComboBoxItem Content="[岩] 荒泷一斗"	 Background="#FFFFF6CA" Foreground="#FF854E08"/>
-			<ComboBoxItem Content="[岩] 诺艾尔"		 Background="#FFEED0FF" Foreground="#FF854E08"/>
-			<ComboBoxItem Content="[岩] 凝光"		 Background="#FFEED0FF" Foreground="#FF854E08"/>
-			<ComboBoxItem Content="[岩] 五郎"		 Background="#FFEED0FF" Foreground="#FF854E08"/>
-			<ComboBoxItem Content="[岩] 云堇"		 Background="#FFEED0FF" Foreground="#FF854E08"/>
-			<ComboBoxItem Content="[雷] 旅行者"		 Background="#FFFFF6CA" Foreground="#FF9E05C7"/>
-			<ComboBoxItem Content="[雷] 刻晴"		 Background="#FFFFF6CA" Foreground="#FF9E05C7"/>
-			<ComboBoxItem Content="[雷] 雷电将军"	 Background="#FFFFF6CA" Foreground="#FF9E05C7"/>
-			<ComboBoxItem Content="[雷] 八重神子"	 Background="#FFFFF6CA" Foreground="#FF9E05C7"/>
-			<ComboBoxItem Content="[雷] 丽莎"		 Background="#FFEED0FF" Foreground="#FF9E05C7"/>
-			<ComboBoxItem Content="[雷] 菲谢尔"		 Background="#FFEED0FF" Foreground="#FF9E05C7"/>
-			<ComboBoxItem Content="[雷] 北斗"		 Background="#FFEED0FF" Foreground="#FF9E05C7"/>
-			<ComboBoxItem Content="[雷] 九条裟罗"	 Background="#FFEED0FF" Foreground="#FF9E05C7"/>
-			<ComboBoxItem Content="[雷] 久岐忍"		 Background="#FFEED0FF" Foreground="#FF9E05C7"/>
-			<ComboBoxItem Content="[雷] 多莉"		 Background="#FFEED0FF" Foreground="#FF9E05C7"/>
-			<ComboBoxItem Content="[草] 旅行者"		 Background="#FFFFF6CA" Foreground="#FF63B303"/>
-			<ComboBoxItem Content="[草] 提纳里"		 Background="#FFFFF6CA" Foreground="#FF63B303"/>
-			<ComboBoxItem Content="[草] 柯莱"		 Background="#FFEED0FF" Foreground="#FF63B303"/>
-			<ComboBoxItem Content="[水] 旅行者"		 Background="#FFFFF6CA" Foreground="#FF0023F5"/>
-			<ComboBoxItem Content="[水] 莫娜"		 Background="#FFFFF6CA" Foreground="#FF0023F5"/>
-			<ComboBoxItem Content="[水] 达达利亚"	 Background="#FFFFF6CA" Foreground="#FF0023F5"/>
-			<ComboBoxItem Content="[水] 珊瑚宫心海"	 Background="#FFFFF6CA" Foreground="#FF0023F5"/>
-			<ComboBoxItem Content="[水] 神里绫人"	 Background="#FFFFF6CA" Foreground="#FF0023F5"/>
-			<ComboBoxItem Content="[水] 夜兰"		 Background="#FFFFF6CA" Foreground="#FF0023F5"/>
-			<ComboBoxItem Content="[水] 行秋"		 Background="#FFEED0FF" Foreground="#FF0023F5"/>
-			<ComboBoxItem Content="[水] 芭芭拉"		 Background="#FFEED0FF" Foreground="#FF0023F5"/>
-			<ComboBoxItem Content="[水] 坎蒂丝"		 Background="#FFEED0FF" Foreground="#FF0023F5"/>
+        Title="MainWindow" Height="800" Width="1280">
+	<Grid Background="#FFF4F4FF">
+		<ScrollViewer Width="920" HorizontalAlignment="Right" Margin="365,0,0,0" SnapsToDevicePixels="True">
+			<StackPanel HorizontalAlignment="Right" Orientation="Vertical" VerticalAlignment="Top" Margin="4,4,4,4" ScrollViewer.VerticalScrollBarVisibility="Visible" CanVerticallyScroll="True">
+				<local:CharacterAttributes x:Name="HP" BorderThickness="1,1,1,1"  Padding="4,4,4,4" ValueChange="CallCalculator"/>
+				<local:CharacterAttributes x:Name="ATK" BorderThickness="1,1,1,1" Padding="4,4,4,4" ValueChange="CallCalculator"/>
+				<local:CharacterAttributes x:Name="DEF" BorderThickness="1,1,1,1" Padding="4,4,4,4" ValueChange="CallCalculator"/>
+				<local:CharacterAttributes x:Name="EM" BorderThickness="1,1,1,1" Padding="4,4,4,4" ValueChange="CallCalculator"/>
+				<local:CharacterAttributes x:Name="CRITRATE" BorderThickness="1,1,1,1" Padding="4,4,4,4" ValueChange="CallCalculator"/>
+				<local:CharacterAttributes x:Name="CRITDMG" BorderThickness="1,1,1,1" Padding="4,4,4,4" ValueChange="CallCalculator"/>
+				<local:CharacterAttributes x:Name="RECHARGE" BorderThickness="1,1,1,1" Padding="4,4,4,4" ValueChange="CallCalculator"/>
+				<local:CharacterAttributes x:Name="ELEMBONUS" BorderThickness="1,1,1,1" Padding="4,4,4,4" ValueChange="CallCalculator"/>
+				<local:CharacterAttributes x:Name="PHYSBONUS" BorderThickness="1,1,1,1" Padding="4,4,4,4" ValueChange="CallCalculator"/>
+				<local:CharacterAttributes x:Name="UNIVERSALBONUS" BorderThickness="1,1,1,1" Padding="4,4,4,4" ValueChange="CallCalculator"/>
+				<local:CharacterAttributes x:Name="HEALINGBONUS" BorderThickness="1,1,1,1" Padding="4,4,4,4" ValueChange="CallCalculator"/>
+				<local:Calculator x:Name="Calculator"/>
 
-			<ComboBoxItem/>
-			<ComboBoxItem/>
-			<ComboBoxItem/>
-			<ComboBoxItem/>
-			<ComboBoxItem/>
-			<ComboBoxItem/>
-			<ComboBoxItem/>
-			<ComboBoxItem/>
-			<ComboBoxItem/>
-			<ComboBoxItem/>
-			<ComboBoxItem/>
-			<ComboBoxItem/>
-			<ComboBoxItem/>
-		</ComboBox>
-		<Slider HorizontalAlignment="Left" Margin="111,134,0,0" VerticalAlignment="Top" Width="160" Maximum="6" SmallChange="1" Height="34" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="Transparent" BorderBrush="Transparent" Foreground="#FFFFCF76" Orientation="Horizontal" Cursor="AppStarting" ScrollViewer.HorizontalScrollBarVisibility="Auto" TickPlacement="Both" IsSnapToTickEnabled="True" RenderTransformOrigin="0.5,0.5" >
-			<Slider.RenderTransform>
-				<TransformGroup>
-					<ScaleTransform ScaleY="1.2"/>
-					<SkewTransform/>
-					<RotateTransform/>
-					<TranslateTransform/>
-				</TransformGroup>
-			</Slider.RenderTransform>
-		</Slider>
-		<local:CharacterAttributes x:Name="HP" HorizontalAlignment="Left" Margin="271,36,0,0" VerticalAlignment="Top" Height="95"  Width="988" AutomationProperties.Name="HP"/>
-		<local:CharacterAttributes x:Name="ATK" HorizontalAlignment="Left" Margin="271,131,0,0" VerticalAlignment="Top" Height="89"  Width="988" AutomationProperties.Name="ATK"/>
-		<local:CharacterAttributes x:Name="DEF" HorizontalAlignment="Left" Margin="271,226,0,0" VerticalAlignment="Top" Height="95"  Width="988" AutomationProperties.Name="ATK" Panel.ZIndex="4"/>
-		<local:CharacterAttributes x:Name="EM" HorizontalAlignment="Left" Margin="271,0,0,0" VerticalAlignment="Center" Height="94"  Width="988" AutomationProperties.Name="ATK" Panel.ZIndex="2"/>
-		<local:CharacterAttributes x:Name="CRITRATE" HorizontalAlignment="Left" Margin="271,413,0,0" VerticalAlignment="Top" Height="95"  Width="988" AutomationProperties.Name="ATK"/>
-		<local:CharacterAttributes x:Name="CRITDMG" HorizontalAlignment="Left" Margin="271,508,0,0" VerticalAlignment="Top" Height="95"  Width="988" AutomationProperties.Name="ATK"/>
-		<local:CharacterAttributes x:Name="RECHARGE" HorizontalAlignment="Left" Margin="271,591,0,0" VerticalAlignment="Top"/>
+
+
+
+			</StackPanel>
+
+		</ScrollViewer>
+
+		<GroupBox Header="角色信息" Width="300" Height="256" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="64,19,0,0">
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="7*"/>
+					<ColumnDefinition Width="52*"/>
+					<ColumnDefinition Width="85*"/>
+				</Grid.ColumnDefinitions>
+				<Label x:Name="CharacterNameLabel" Content="角色" HorizontalAlignment="Left" Margin="1,10,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Normal" FontStyle="Normal" Foreground="#FF020048" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Height="32" Grid.Column="1" Width="98"/>
+				<Label x:Name="CharacterLevelLabel" Content="等级：" HorizontalAlignment="Left" Margin="1,47,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Normal" FontStyle="Normal" Foreground="#FF020048" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Height="32" Grid.Column="1" Width="98"/>
+				<Label x:Name="CharacterConstellationLabel" Content="命座：" HorizontalAlignment="Left" Margin="1,84,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Normal" FontStyle="Normal" Foreground="#FF020048" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Height="32" Grid.Column="1" Width="98"/>
+				<Label x:Name="CharacterSkillALabel" Content="普攻：" HorizontalAlignment="Left" Margin="1,121,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Normal" FontStyle="Normal" Foreground="#FF020048" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Height="32" Grid.Column="1" Width="98"/>
+				<Label x:Name="CharacterSkillELabel" Content="战技：" HorizontalAlignment="Left" Margin="1,158,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Normal" FontStyle="Normal" Foreground="#FF020048" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Height="32" Grid.Column="1" Width="98"/>
+				<Label x:Name="CharacterSkillQLabel" Content="爆发：" HorizontalAlignment="Left" Margin="1,195,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Normal" FontStyle="Normal" Foreground="#FF020048" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Height="32" Grid.Column="1" Width="98"/>
+
+				<ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="160" Height="32" MaxDropDownHeight="540" IsReadOnly="True" FontSize="18" VerticalContentAlignment="Center" Margin="0,10,0,0" Grid.Column="2">
+					<ComboBoxItem Content="[风] 旅行者"		 Background="#FFFFF6CA" Foreground="#FF008292"/>
+					<ComboBoxItem Content="[风] 琴"			 Background="#FFFFF6CA" Foreground="#FF008292"/>
+					<ComboBoxItem Content="[风] 温迪"		 Background="#FFFFF6CA" Foreground="#FF008292"/>
+					<ComboBoxItem Content="[风] 魈"			 Background="#FFFFF6CA" Foreground="#FF008292"/>
+					<ComboBoxItem Content="[风] 枫原万叶"	 Background="#FFFFF6CA" Foreground="#FF008292"/>
+					<ComboBoxItem Content="[风] 砂糖"		 Background="#FFEED0FF" Foreground="#FF008292"/>
+					<ComboBoxItem Content="[风] 早柚"		 Background="#FFEED0FF" Foreground="#FF008292"/>
+					<ComboBoxItem Content="[风] 鹿野院平藏"	 Background="#FFEED0FF" Foreground="#FF008292"/>
+					<ComboBoxItem Content="[岩] 旅行者"		 Background="#FFFFF6CA" Foreground="#FF854E08"/>
+					<ComboBoxItem Content="[岩] 钟离"		 Background="#FFFFF6CA" Foreground="#FF854E08"/>
+					<ComboBoxItem Content="[岩] 阿贝多"		 Background="#FFFFF6CA" Foreground="#FF854E08"/>
+					<ComboBoxItem Content="[岩] 荒泷一斗"	 Background="#FFFFF6CA" Foreground="#FF854E08"/>
+					<ComboBoxItem Content="[岩] 诺艾尔"		 Background="#FFEED0FF" Foreground="#FF854E08"/>
+					<ComboBoxItem Content="[岩] 凝光"		 Background="#FFEED0FF" Foreground="#FF854E08"/>
+					<ComboBoxItem Content="[岩] 五郎"		 Background="#FFEED0FF" Foreground="#FF854E08"/>
+					<ComboBoxItem Content="[岩] 云堇"		 Background="#FFEED0FF" Foreground="#FF854E08"/>
+					<ComboBoxItem Content="[雷] 旅行者"		 Background="#FFFFF6CA" Foreground="#FF9E05C7"/>
+					<ComboBoxItem Content="[雷] 刻晴"		 Background="#FFFFF6CA" Foreground="#FF9E05C7"/>
+					<ComboBoxItem Content="[雷] 雷电将军"	 Background="#FFFFF6CA" Foreground="#FF9E05C7"/>
+					<ComboBoxItem Content="[雷] 八重神子"	 Background="#FFFFF6CA" Foreground="#FF9E05C7"/>
+					<ComboBoxItem Content="[雷] 丽莎"		 Background="#FFEED0FF" Foreground="#FF9E05C7"/>
+					<ComboBoxItem Content="[雷] 菲谢尔"		 Background="#FFEED0FF" Foreground="#FF9E05C7"/>
+					<ComboBoxItem Content="[雷] 北斗"		 Background="#FFEED0FF" Foreground="#FF9E05C7"/>
+					<ComboBoxItem Content="[雷] 九条裟罗"	 Background="#FFEED0FF" Foreground="#FF9E05C7"/>
+					<ComboBoxItem Content="[雷] 久岐忍"		 Background="#FFEED0FF" Foreground="#FF9E05C7"/>
+					<ComboBoxItem Content="[雷] 多莉"		 Background="#FFEED0FF" Foreground="#FF9E05C7"/>
+					<ComboBoxItem Content="[草] 旅行者"		 Background="#FFFFF6CA" Foreground="#FF63B303"/>
+					<ComboBoxItem Content="[草] 提纳里"		 Background="#FFFFF6CA" Foreground="#FF63B303"/>
+					<ComboBoxItem Content="[草] 柯莱"		 Background="#FFEED0FF" Foreground="#FF63B303"/>
+					<ComboBoxItem Content="[水] 旅行者"		 Background="#FFFFF6CA" Foreground="#FF0023F5"/>
+					<ComboBoxItem Content="[水] 莫娜"		 Background="#FFFFF6CA" Foreground="#FF0023F5"/>
+					<ComboBoxItem Content="[水] 达达利亚"	 Background="#FFFFF6CA" Foreground="#FF0023F5"/>
+					<ComboBoxItem Content="[水] 珊瑚宫心海"	 Background="#FFFFF6CA" Foreground="#FF0023F5"/>
+					<ComboBoxItem Content="[水] 神里绫人"	 Background="#FFFFF6CA" Foreground="#FF0023F5"/>
+					<ComboBoxItem Content="[水] 夜兰"		 Background="#FFFFF6CA" Foreground="#FF0023F5"/>
+					<ComboBoxItem Content="[水] 行秋"		 Background="#FFEED0FF" Foreground="#FF0023F5"/>
+					<ComboBoxItem Content="[水] 芭芭拉"		 Background="#FFEED0FF" Foreground="#FF0023F5"/>
+					<ComboBoxItem Content="[水] 坎蒂丝"		 Background="#FFEED0FF" Foreground="#FF0023F5"/>
+
+					<ComboBoxItem/>
+					<ComboBoxItem/>
+					<ComboBoxItem/>
+					<ComboBoxItem/>
+					<ComboBoxItem/>
+					<ComboBoxItem/>
+					<ComboBoxItem/>
+					<ComboBoxItem/>
+					<ComboBoxItem/>
+					<ComboBoxItem/>
+					<ComboBoxItem/>
+					<ComboBoxItem/>
+					<ComboBoxItem/>
+				</ComboBox>
+				<Slider x:Name="CharacterLevel_Slider" HorizontalAlignment="Left" Margin="0,47,0,0" VerticalAlignment="Top" Width="160" Height="32" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="Transparent" BorderBrush="Transparent" Foreground="#FFFFCF76" Orientation="Horizontal" Cursor="AppStarting" ScrollViewer.HorizontalScrollBarVisibility="Auto" TickPlacement="Both" IsSnapToTickEnabled="True" RenderTransformOrigin="0.5,0.5" Grid.Column="2" ValueChanged="SliderChanged" Maximum="13" SmallChange="1"/>
+				<Slider x:Name="CharacterConstellation_Slider" HorizontalAlignment="Left" Margin="0,84,0,0" VerticalAlignment="Top" Width="160" Maximum="6" SmallChange="1" Height="32" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="Transparent" BorderBrush="Transparent" Foreground="#FFFFCF76" Orientation="Horizontal" Cursor="AppStarting" ScrollViewer.HorizontalScrollBarVisibility="Auto" TickPlacement="Both" IsSnapToTickEnabled="True" RenderTransformOrigin="0.5,0.5" Grid.Column="2" ValueChanged="SliderChanged" ></Slider>
+				<Slider x:Name="NormalAttackLevel_Slider" HorizontalAlignment="Left" Margin="0,121,0,0" VerticalAlignment="Top" Width="160" Height="32" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="Transparent" BorderBrush="Transparent" Foreground="#FFFFCF76" Orientation="Horizontal" Cursor="AppStarting" ScrollViewer.HorizontalScrollBarVisibility="Auto" TickPlacement="Both" IsSnapToTickEnabled="True" RenderTransformOrigin="0.5,0.5" Grid.Column="2" ValueChanged="SliderChanged" Minimum="1" SmallChange="1"/>
+				<Slider x:Name="ElementalSkillLevel_Slider" HorizontalAlignment="Left" Margin="0,158,0,0" VerticalAlignment="Top" Width="160" Height="32" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="Transparent" BorderBrush="Transparent" Foreground="#FFFFCF76" Orientation="Horizontal" Cursor="AppStarting" ScrollViewer.HorizontalScrollBarVisibility="Auto" TickPlacement="Both" IsSnapToTickEnabled="True" RenderTransformOrigin="0.5,0.5" Grid.Column="2" ValueChanged="SliderChanged" SmallChange="1" Minimum="1"/>
+				<Slider x:Name="ElementalBurstLevel_Slider" HorizontalAlignment="Left" Margin="0,195,0,0" VerticalAlignment="Top" Width="160" Height="32" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="Transparent" BorderBrush="Transparent" Foreground="#FFFFCF76" Orientation="Horizontal" Cursor="AppStarting" ScrollViewer.HorizontalScrollBarVisibility="Auto" TickPlacement="Both" IsSnapToTickEnabled="True" RenderTransformOrigin="0.5,0.5" Grid.Column="2" ValueChanged="SliderChanged" Minimum="1" SmallChange="1"/>
+
+			</Grid>
+
+		</GroupBox>
+
+
+		<GroupBox HorizontalAlignment="Left" Height="142" Header="武器信息" Margin="64,280,0,0" VerticalAlignment="Top" Width="300">
+			<Grid MinWidth="1">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="7*"/>
+					<ColumnDefinition Width="52*"/>
+					<ColumnDefinition Width="85*"/>
+				</Grid.ColumnDefinitions>
+				<Label x:Name="WeaponNameLabel" Content="武器：" HorizontalAlignment="Left" Margin="0,6,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Normal" FontStyle="Normal" Foreground="#FF020048" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Height="32" Width="98" Grid.Column="1"/>
+				<Label x:Name="WeaponLevelLabel" Content="等级：" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="18" FontWeight="Normal" FontStyle="Normal" Foreground="#FF020048" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Height="32" Width="98" Grid.Column="1"/>
+				<Label x:Name="WeaponRefinementLabel" Content="精炼：" HorizontalAlignment="Left" Margin="0,81,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Normal" FontStyle="Normal" Foreground="#FF020048" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Height="32" Width="98" Grid.Column="1"/>
+				<ComboBox x:Name="WeaponSelection" HorizontalAlignment="Left" Margin="0,6,0,0" VerticalAlignment="Top" Width="160" Height="32" MaxDropDownHeight="540" IsReadOnly="True" FontSize="18" VerticalContentAlignment="Center" Grid.Column="2"/>
+				<Slider x:Name="WeaponLevel_Slider" HorizontalAlignment="Left" VerticalAlignment="Center" Width="160" Height="32" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="Transparent" BorderBrush="Transparent" Foreground="#FFFFCF76" Orientation="Horizontal" Cursor="AppStarting" ScrollViewer.HorizontalScrollBarVisibility="Auto" TickPlacement="Both" IsSnapToTickEnabled="True" RenderTransformOrigin="0.5,0.5" Grid.Column="2" ValueChanged="SliderChanged" SmallChange="1"/>
+				<Slider x:Name="WeaponRefinement_Slider" HorizontalAlignment="Left" Margin="0,81,0,0" VerticalAlignment="Top" Width="160" Maximum="5" SmallChange="1" Height="32" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="Transparent" BorderBrush="Transparent" Foreground="#FFFFCF76" Orientation="Horizontal" Cursor="AppStarting" ScrollViewer.HorizontalScrollBarVisibility="Auto" TickPlacement="Both" IsSnapToTickEnabled="True" RenderTransformOrigin="0.5,0.5" Grid.Column="2" ValueChanged="SliderChanged" Minimum="1" />
+
+
+			</Grid>
+		</GroupBox>
+		<GroupBox HorizontalAlignment="Left" Height="202" Header="圣遗物信息" Margin="64,427,0,0" VerticalAlignment="Top" Width="300">
+			<Grid MinWidth="1">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="7*"/>
+					<ColumnDefinition Width="52*"/>
+					<ColumnDefinition Width="85*"/>
+				</Grid.ColumnDefinitions>
+				<ComboBox x:Name="ArtifactSet_1" HorizontalAlignment="Left" Margin="0,6,0,0" VerticalAlignment="Top" Width="160" Height="32" MaxDropDownHeight="540" IsReadOnly="True" FontSize="18" VerticalContentAlignment="Center" Grid.Column="2"/>
+				<Label x:Name="ArtifactSetLabel_1" Content="两件：" HorizontalAlignment="Left" Margin="0,6,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Normal" FontStyle="Normal" Foreground="#FF020048" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Height="32" Width="98" Grid.Column="1"/>
+				<ComboBox x:Name="ArtifactSet_2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="160" Height="32" MaxDropDownHeight="540" IsReadOnly="True" FontSize="18" VerticalContentAlignment="Center" Grid.Column="2" Margin="0,43,0,0"/>
+				<Label x:Name="ArtifactSetLabel_2" Content="四件：" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="18" FontWeight="Normal" FontStyle="Normal" Foreground="#FF020048" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Height="32" Width="98" Grid.Column="1" Margin="0,43,0,0"/>
+				<Label x:Name="ArtifactSetEffect_Label" Grid.Column="1" Content="套装效果" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="76" Margin="4,80,0,0" VerticalAlignment="Top" Width="260" Cursor=""/>
+				<CheckBox x:Name="ArtifactSetEffect_CheckBox" Grid.Column="1" Content="四件套套装效果生效" HorizontalAlignment="Left" Margin="4,161,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="260" Height="19"/>
+
+			</Grid>
+		</GroupBox>
+		<Expander x:Name="EnemyConfigText" HorizontalAlignment="Left" Height="145" Header="Expander" Margin="64,634,0,0" VerticalAlignment="Top" Width="296">
+			<Grid Background="#FFE5E5E5">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="14*"/>
+					<ColumnDefinition Width="99*"/>
+					<ColumnDefinition Width="182*"/>
+				</Grid.ColumnDefinitions>
+				<Label x:Name="ArtifactSetLabel_3" Content="等级：" HorizontalAlignment="Left" Margin="6,5,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Normal" FontStyle="Normal" Foreground="#FF020048" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Height="32" Width="98" Grid.Column="1" Grid.ColumnSpan="2"/>
+				<Label x:Name="ArtifactSetLabel_4" Content="种类：" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="18" FontWeight="Normal" FontStyle="Normal" Foreground="#FF020048" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Height="32" Width="98" Margin="6,42,0,0" Grid.Column="1" Grid.ColumnSpan="2"/>
+				<TextBox Grid.Column="2" HorizontalAlignment="Left" Margin="5,10,0,0" TextWrapping="Wrap" Text="90" VerticalAlignment="Top" Width="160" Height="27" FontSize="16" VerticalContentAlignment="Center"/>
+			</Grid>
+		</Expander>
+
+
+
+
 
 
 	</Grid>
