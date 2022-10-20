@@ -15,10 +15,15 @@ namespace GenshinCalc_V2
 		/// </summary>
 		public enum CalculateMode
 		{
+			//---无反应---
+
 			/// <summary>未暴击，直伤</summary>
 			NonCrited,
 			/// <summary>已暴击，直伤</summary>
 			Crited,
+
+			//---增幅反应---
+
 			/// <summary>未暴击，1.5倍增幅（火打水蒸发、冰打火融化）</summary>
 			NonCrited1,
 			/// <summary>已暴击，1.5倍增幅（火打水蒸发、冰打火融化）</summary>
@@ -28,14 +33,59 @@ namespace GenshinCalc_V2
 			/// <summary>已暴击，2.0倍增幅（水打火蒸发、火打冰融化）</summary>
 			Crited2,
 
+			//---激化反应---
+
+			/// <summary>未暴击，（原）激化</summary>
+			Catalyze,
+			/// <summary>已暴击，（原）激化</summary>
+			CatalyzeCrited,
+			/// <summary>未暴击，超激化</summary>
+			Aggravate,
+			/// <summary>已暴击，超激化</summary>
+			AggravateCrited,
+			/// <summary>未暴击，蔓激化</summary>
+			Spread,
+			/// <summary>已暴击，蔓激化</summary>
+			SpreadCrited,
+
+			//---绽放反应---
+
+			/// <summary>（原）绽放</summary>
+			Bloom,
+			/// <summary>烈绽放</summary>
+			Burgeon,
+			/// <summary>超绽放</summary>
+			Hyperbloom,
+
+			//---经典剧变反应---
+
+			/// <summary>扩散</summary>
+			Swirl,
+			/// <summary>结晶</summary>
+			Crystallize,
+			/// <summary>感电</summary>
+			ElectroCharged,
+			/// <summary>超载</summary>
+			Overloaded,
+			/// <summary>超导</summary>
+			Superconduct,
+			/// <summary>冻结</summary>
+			Frozen,
+
+			//---未列举的其他反应，以后将逐渐补充---
+			/// <summary>妮露的丰穰之核绽放</summary>
+			Bloom_By_Bountiful_Cores,
+
 		}
+		string[] results = new string[50];
+		string[] formulacores ={"HP","ATK","DEF","EM","CRITRATE","CRITDMG","RECHARGE","ELEMBONUS","PHYSBONUS","UNIVERSALBONUS","HEALINGBONUS","ENEMYRES","ENEMYLEVEL"};
 		SeperatedPanels.Components component = new SeperatedPanels.Components();
 		public Calculator()
 		{
 			InitializeComponent();
 		}
 
-		private float critrate, critdmg;
+
 		readonly Upheaval upheaval = new Upheaval();
 		/// <summary>
 		/// 计算未暴击情况下的伤害基础值
@@ -83,28 +133,42 @@ namespace GenshinCalc_V2
 				return 0f;
 			});
 		}
+		/// <summary>
+		/// 计算未暴击情况下的伤害基础值
+		/// </summary>
+		/// <param name="res">传入的数据数组
+		/// 规定：数组能且仅能按照如下顺序传入
+		/// [0]HP
+		/// [1]ATK
+		/// [2]DEF
+		/// [3]EM
+		/// [4]CRITRATE
+		/// [5]CRITDMG
+		/// [6]RECHARGE
+		/// [7]ELEMBONUS
+		/// [8]PHYSBONUS
+		/// [9]UNIVERSALBONUS
+		/// [10]HEALINGBONUS
+		/// [11]ENEMYRES
+		/// [12]ENEMYLEVEL
+		/// </param>
+		/// <param name="formula">传入的运算表达式
+		/// 表达式应严格遵守四则运算规则</param>
+		/// <param name="mode">计算结果的种类（直伤、反应等）</param>
 		public Task<float> Calculate(float[] res, string formula, CalculateMode mode)
 		{
-			//按照符号分隔运算表达式
-			//string[] operators=formula.Split(new char[7] { '+','-','*','/','%','^','&'});
-			formula = formula.Replace("HP", res[0].ToString());
-			formula = formula.Replace("ATK", res[1].ToString());
-			formula = formula.Replace("DEF", res[2].ToString());
-			formula = formula.Replace("CRITRATE", res[4].ToString());
-			formula = formula.Replace("CRITDMG", res[5].ToString());
-			formula = formula.Replace("RECHARGE", res[6].ToString());
-			formula = formula.Replace("ELEMBONUS", res[7].ToString());
-			formula = formula.Replace("EM", res[3].ToString());
-			formula = formula.Replace("PHYSBONUS", res[8].ToString());
-			formula = formula.Replace("UNIVERSALBONUS", res[9].ToString());
-			formula = formula.Replace("HEALINGBONUS", res[10].ToString());
-			formula = formula.Replace("ENEMYRES", res[11].ToString());
-			formula = formula.Replace("ENEMYLEVEL", res[12].ToString());
-			switch (mode)
+			// 不这样写不能处理完字符串
+			for (int i = 1; i < res.Length; i++)
 			{
-				case 0: CritedDMG.Content = component.StringCalc(formula);break;
-				default:break;
+				if (i != 3)
+				{
+					formula = formula.Replace(formulacores[i], res[i].ToString());
+				}
 			}
+			// 对元素精通进行单独处理，因为关键字太短了
+			formula = formula.Replace("EM", res[3].ToString());
+			results[(int)mode] = component.StringCalc(formula);
+
 
 			return Task.Run(() =>
 			{
